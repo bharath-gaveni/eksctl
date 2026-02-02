@@ -8,6 +8,6 @@ metadata:
 
 managedNodeGroups:
 - name: roboshop-dev
-  instanceTypes: ["c3.large","c5.large",t3.small]
+  instanceTypes: ["t3.medium","t3a.medium","c5.large"]
   desiredCapacity: 2 # by default value is 3
   spot: true
