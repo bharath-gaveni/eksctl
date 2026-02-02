@@ -1,4 +1,18 @@
 # spot-cluster.yaml
+# apiVersion: eksctl.io/v1alpha5
+# kind: ClusterConfig
+
+# metadata:
+#   name: roboshop-dev
+#   region: us-east-1
+
+# managedNodeGroups:
+# - name: roboshop-dev
+#   instanceTypes: ["t3.medium","t3a.medium","c5.large"]
+#   desiredCapacity: 2 # by default value is 3
+#   spot: true
+
+
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
@@ -6,8 +20,19 @@ metadata:
   name: roboshop-dev
   region: us-east-1
 
+availabilityZones:
+  - us-east-1a
+  - us-east-1c
+  - us-east-1f
+
 managedNodeGroups:
 - name: roboshop-dev
-  instanceTypes: ["t3.medium","t3a.medium","c5.large"]
-  desiredCapacity: 2 # by default value is 3
+  instanceTypes:
+    - t3.medium
+    - t3a.medium
+    - c5.large
+    - c5a.large
+  desiredCapacity: 2
+  minSize: 1
+  maxSize: 4
   spot: true
