@@ -34,5 +34,5 @@ managedNodeGroups:
     - c5a.large
   desiredCapacity: 2
   minSize: 1
-  maxSize: 4
+  maxSize: 2
   spot: true
